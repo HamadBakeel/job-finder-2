@@ -22,8 +22,8 @@ Route::get('/about', function () {
 Route::get('/contact_us', function () {
     return view('contact_us');
 });
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('/profile', function () {
+    return view('profileSettings');
 });
 Route::get('/job_details', function () {
     return view('job_details');
@@ -34,8 +34,8 @@ Route::get('/job_offers', function () {
 Route::get('/login_register', function () {
     return view('login_register');
 });
-Route::get('/parteners', function () {
-    return view('parteners');
+Route::get('/partners', function () {
+    return view('partners');
 });
 Route::get('/services', function () {
     return view('services');

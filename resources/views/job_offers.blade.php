@@ -1,3 +1,4 @@
+@extends('layouts.navbar')
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -97,53 +98,7 @@
 </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container-fluid">
-        <a class="navbar-brand me-5" href="#">
-          <img
-            src="assets/images/logo.jfif"
-            alt=""
-            width="50"
-            height="35"
-            class="d-inline-block align-text-top rounded-pill"
-          />
-          Job Finder
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" style="position: relative;" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="index.blade.php">Home</a>
-            <a class="nav-link" href="about.blade.php">About us</a>
-            <a class="nav-link" href="contact_us.blade.php">Contact</a>
-            <a href="job_offers.blade.php" class="nav-link">Find a Job</a>
-            <a href="services.blade.php" class="nav-link">Services</a>
-
-          </div>
-          <button
-            class="btn btn-outline-info px-4 me-4 fw-bold align-self-end rounded-pill nav-button-link"
-            style="position: absolute;
-                  right: 90px;
-            "
-            type="button">
-            Post a Job
-          </button>
-          <a href="login_register.blade.php"
-          style="position: absolute;
-                 right: 55px;
-          text-decoration: none"
-          class="text-secondary nav-button-link"
-          >Sign In</a>
-        </div>
-
-
-
-      </div>
-      </div>
-    </nav>
-
-
+   @section('content')
       <div class="container-fluid">
         <div class="col d-flex m-5 justify-content-center">
           <div class="me-3 input">
@@ -485,11 +440,11 @@
       </div>
 
   </body>
-
-  <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.5/dist/muuri.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/web-animations-js@2.3.2/web-animations.min.js"></script>
-  <script src="js/bootstrap.bundle.js"></script>
-  <script src="js/jQuery.min.js"></script>
+  @endsection
+{{--  <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.5/dist/muuri.min.js"></script>--}}
+{{--  <script src="https://cdn.jsdelivr.net/npm/web-animations-js@2.3.2/web-animations.min.js"></script>--}}
+{{--  <script src="js/bootstrap.bundle.js"></script>--}}
+{{--  <script src="js/jQuery.min.js"></script>--}}
   <!-- <script>
     var grid = new Muuri('.grid',{
       dragEnabled: true,

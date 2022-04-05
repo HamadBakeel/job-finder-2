@@ -1,11 +1,13 @@
+@extends('layouts.navbar')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <title>Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
@@ -42,7 +44,6 @@
         height: 32vh !important;
         width: fit-content;
         margin-inline-start: 4rem;
-
       }
       .ads-container::-webkit-scrollbar{
         visibility: hidden;
@@ -93,53 +94,6 @@
     <!-- ========== Nav Bar =========== -->
     <svg style="position: absolute; z-index: -11;" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'><rect fill='#ffffff' width='1600' height='900'/><defs><linearGradient id='a' x1='0' x2='0' y1='1' y2='0' gradientTransform='rotate(0,0.5,0.5)'><stop  offset='0' stop-color='#0FF'/><stop  offset='1' stop-color='#CF6'/></linearGradient><linearGradient id='b' x1='0' x2='0' y1='0' y2='1' gradientTransform='rotate(0,0.5,0.5)'><stop  offset='0' stop-color='#F00'/><stop  offset='1' stop-color='#FC0'/></linearGradient></defs><g fill='#FFF' fill-opacity='0' stroke-miterlimit='10'><g  stroke='url(#a)' stroke-width='9.569999999999999'><path  transform='translate(-88.55 18) rotate(10.65 1409 581) scale(1.0364119999999999)' d='M1409 581 1450.35 511 1490 581z'/><circle  stroke-width='3.19' transform='translate(-59 53) rotate(13.899999999999999 800 450) scale(1.0229499999999998)' cx='500' cy='100' r='40'/><path  transform='translate(41.300000000000004 -141) rotate(137 401 736) scale(1.0229499999999998)' d='M400.86 735.5h-83.73c0-23.12 18.74-41.87 41.87-41.87S400.86 712.38 400.86 735.5z'/></g><g stroke='url(#b)' stroke-width='2.9'><path  transform='translate(318 -17.200000000000003) rotate(4.300000000000001 150 345) scale(0.954804)' d='M149.8 345.2 118.4 389.8 149.8 434.4 181.2 389.8z'/><rect  stroke-width='6.38' transform='translate(-190 -134.5) rotate(162 1089 759)' x='1039' y='709' width='100' height='100'/><path  transform='translate(-295.6 96.4) rotate(27 1400 132) scale(0.98)' d='M1426.8 132.4 1405.7 168.8 1363.7 168.8 1342.7 132.4 1363.7 96 1405.7 96z'/></g></g></svg>
 
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container-fluid">
-        <a class="navbar-brand me-5" href="#">
-          <img
-            src="assets/images/logo.jfif"
-            alt=""
-            width="50"
-            height="35"
-            class="d-inline-block align-text-top rounded-pill"
-          />
-          Job Finder
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" style="position: relative;" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="index.blade.php">Home</a>
-            <a class="nav-link" href="about.blade.php">About us</a>
-            <a class="nav-link" href="contact_us.blade.php">Contact</a>
-            <a href="job_offers.blade.php" class="nav-link">Find a Job</a>
-            <a href="services.blade.php" class="nav-link">Services</a>
-          </div>
-          <button
-          class="btn btn-outline-info px-4 me-4 fw-bold align-self-end rounded-pill nav-button-link"
-          style="position: absolute;
-                 right: 90px;
-          "
-          type="button"
-        >
-          Post a Job
-        </button>
-        <a href="login_register.blade.php"
-        style="position: absolute;
-                 right: 55px;
-          text-decoration: none"
-
-          class="text-secondary nav-button-link"
-          >Sign In</a
-        >
-        </div>
-
-
-
-      </div>
-      </div>
-    </nav>
 
     <!-- ============ hero section ============= -->
     <div class="container-fluid mt-5">
@@ -498,49 +452,7 @@
       </div>
     </div> -->
 
-    <footer class="bg-dark text-light">
-      <div class=" pt-5  footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-5 col-xs-12 about-company">
-              <h2>Job Finder</h2>
-              <p class="pr-5 text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac ante mollis quam tristique convallis </p>
-              <p><a href="#"><i class="fab fa-facebook-square me-md-2"></i>
-              </a><a href="#"><i class="fab fa-linkedin"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-            </p>
-            </div>
-            <div class="col-lg-3 col-xs-12 links">
-              <h4 class="mt-lg-0 mt-sm-3">Links</h4>
-                <ul class="m-0 p-0">
-                  <li>- <a href="#">Lorem ipsum</a></li>
-                  <li>- <a href="#">Nam mauris velit</a></li>
-                  <li>- <a href="#">Etiam vitae mauris</a></li>
-                  <li>- <a href="#">Fusce scelerisque</a></li>
 
-                </ul>
-            </div>
-            <div class="col-lg-4 col-xs-12 location">
-              <h4 class="mt-lg-0 mt-sm-4">Location</h4>
-              <p>22, Lorem ipsum dolor, consectetur adipiscing</p>
-              <p class="mb-0"><i class="fa fa-phone mr-3"></i>(541) 754-3010</p>
-              <p><i class="fa fa-envelope-o mr-3"></i>info@hsdf.com</p>
-            </div>
-          </div>
-          <div class="row mt-5">
-            <div class="col copyright">
-              <p class=""><small class="text-white-50">© 2022. @hamadbakeel.</small></p>
-            </div>
-          </div>
-        </div>
-        </div>
-      <!-- <ul style="margin: 0;">
-        <li>About Us</li>
-        <li>Our Services</li>
-        <li><a href="contact_us.html">Contact Us</a></li>
-        <li><a href="contact_us.html"></a></li>
-      </ul> -->
-    </footer>
-    <script src="js/bootstrap.bundle.js"></script>
   </body>
 </html>
+@endsection

@@ -1,3 +1,5 @@
+@extends('layouts.navbar')
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,53 +17,7 @@
 
   </head>
   <body style="background-color: #f2f2f2;">
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-      <div class="container-fluid">
-        <a class="navbar-brand me-5" href="#">
-          <img
-            src="assets/images/logo.jfif"
-            alt=""
-            width="50"
-            height="35"
-            class="d-inline-block align-text-top rounded-pill"
-          />
-          Job Finder
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" style="position: relative;" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="index.blade.php">Home</a>
-            <a class="nav-link" href="about.blade.php">About us</a>
-            <a class="nav-link" href="contact_us.blade.php">Contact</a>
-            <a href="job_offers.blade.php" class="nav-link">Find a Job</a>
-            <a href="services.blade.php" class="nav-link">Services</a>
-          </div>
-          <button
-          class="btn btn-outline-info px-4 me-4 fw-bold align-self-end rounded-pill nav-button-link"
-          style="position: absolute;
-                 right: 90px;
-          "
-          type="button"
-        >
-          Post a Job
-        </button>
-        <a href="login_register.blade.php"
-        style="position: absolute;
-                 right: 55px;
-          text-decoration: none"
-
-          class="text-secondary nav-button-link"
-          >Sign In</a
-        >
-        </div>
-
-
-
-      </div>
-      </div>
-    </nav>
+  @section('content')
 
     <div class="container-contact100">
       <div class="wrap-contact100">
@@ -162,62 +118,8 @@
     <div id="dropDownSelect1"></div>
 
 
-    <!-- <h2 class="text-center mt-5">Contact us</h2>
-    <form class="row g-3 m-5">
-      <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">Email</label>
-        <input type="email" class="form-control" id="inputEmail4" />
-      </div>
-      <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">Password</label>
-        <input type="password" class="form-control" id="inputPassword4" />
-      </div>
-      <div class="col-12">
-        <label for="inputAddress" class="form-label">Address</label>
-        <input
-          type="text"
-          class="form-control"
-          id="inputAddress"
-          placeholder="1234 Main St"
-        />
-      </div>
-      <div class="col-12">
-        <label for="inputAddress2" class="form-label">Address 2</label>
-        <input
-          type="text"
-          class="form-control"
-          id="inputAddress2"
-          placeholder="Apartment, studio, or floor"
-        />
-      </div>
-      <div class="col-md-6">
-        <label for="inputCity" class="form-label">City</label>
-        <input type="text" class="form-control" id="inputCity" />
-      </div>
-      <div class="col-md-4">
-        <label for="inputState" class="form-label">State</label>
-        <select id="inputState" class="form-select">
-          <option selected>Choose...</option>
-          <option>...</option>
-        </select>
-      </div>
-      <div class="col-md-2">
-        <label for="inputZip" class="form-label">Zip</label>
-        <input type="text" class="form-control" id="inputZip" />
-      </div>
-      <div class="col-12">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck" />
-          <label class="form-check-label" for="gridCheck"> Check me out </label>
-        </div>
-      </div>
-      <div class="col-12">
-        <button type="submit" class="btn btn-outline-info">Sign in</button>
-      </div>
-    </form> -->
+@endsection
 
-    <script src="js/bootstrap.bundle.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/jQuery.min.js"></script>
+
   </body>
 </html>

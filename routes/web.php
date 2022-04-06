@@ -22,8 +22,8 @@ Route::get('/about', function () {
 Route::get('/contact_us', function () {
     return view('contact_us');
 });
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('/profile', function () {
+    return view('profileSettings');
 });
 Route::get('/job_details', function () {
     return view('job_details');

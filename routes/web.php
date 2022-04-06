@@ -34,9 +34,12 @@ Route::get('/job_offers', function () {
 Route::get('/login_register', function () {
     return view('login_register');
 });
-Route::get('/parteners', function () {
-    return view('parteners');
+Route::get('/partners', function () {
+    return view('partners');
 });
 Route::get('/services', function () {
     return view('services');
+});
+Route::get('/dash', function () {
+    return view('admin.dashboard');
 });

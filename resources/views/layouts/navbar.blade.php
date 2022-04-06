@@ -40,9 +40,6 @@
                 >Sign In</a
                 >
             </div>
-
-
-
         </div>
     </nav>
 

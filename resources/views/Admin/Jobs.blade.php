@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="assets/vendor/libs/typeahead-js/typeahead.css" />
     <link rel="stylesheet" href="assets/vendor/libs/flatpickr/flatpickr.css" />
-<link rel="stylesheet" href="assets/vendor/libs/select2/select2.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/select2/select2.css" />
 
     <!-- Page CSS -->
 
@@ -177,15 +177,6 @@
 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
 
 
-
-
-
-
-
-
-
-
-
       <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0   d-xl-none ">
         <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
           <i class="bx bx-menu bx-sm"></i>
@@ -206,10 +197,6 @@
           </div>
         </div>
         <!-- /Search -->
-
-
-
-
 
         <ul class="navbar-nav flex-row align-items-center ms-auto">
 
@@ -646,17 +633,17 @@
         <h5 class="mb-0">Job Details</h5> <small class="text-muted float-end">Default label</small>
       </div>
       <div class="card-body">
-        <form>
+        <form method="post" action="" enctype="multipart/form-data">
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="basic-default-name" placeholder="John Doe" />
+              <input type="text" class="form-control" id="basic-default-name" name="jobName" placeholder="" />
             </div>
           </div>
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label" for="basic-default-company">Company</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="basic-default-company" placeholder="ACME Inc." />
+              <input type="text" class="form-control" id="basic-default-company" placeholder="" name="job" />
             </div>
           </div>
           <div class="row mb-3">

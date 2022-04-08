@@ -40,6 +40,6 @@ Route::get('/partners', function () {
 Route::get('/services', function () {
     return view('services');
 });
-Route::get('/dash', function () {
-    return view('admin.dashboard');
+Route::get('/companies', function () {
+    return view('admin.companies');
 });

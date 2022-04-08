@@ -1,5 +1,4 @@
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <!-- beautify ignore:start -->
 <html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed " dir="ltr" data-theme="theme-semi-dark" data-assets-path="assets/" data-template="vertical-menu-template-semi-dark">
 
@@ -38,7 +37,7 @@
     <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="assets/vendor/libs/typeahead-js/typeahead.css" />
     <link rel="stylesheet" href="assets/vendor/libs/flatpickr/flatpickr.css" />
-<link rel="stylesheet" href="assets/vendor/libs/select2/select2.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/select2/select2.css" />
 
     <!-- Page CSS -->
 
@@ -643,49 +642,66 @@
   <div class="col-xxl">
     <div class="card mb-4">
       <div class="card-header d-flex align-items-center justify-content-between">
-        <h5 class="mb-0">Job Details</h5> <small class="text-muted float-end">Default label</small>
+        <h5 class="mb-0">Company Details</h5>
       </div>
       <div class="card-body">
         <form>
+
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="basic-default-name" placeholder="John Doe" />
+              <input type="text" class="form-control" id="basic-default-name" name="companyName" placeholder="" />
             </div>
           </div>
+
           <div class="row mb-3">
-            <label class="col-sm-2 col-form-label" for="basic-default-company">Company</label>
+            <label class="col-sm-2 col-form-label" for="basic-default-company">Location</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="basic-default-company" placeholder="ACME Inc." />
+              <input type="text" class="form-control" id="basic-default-company" name="companyLocation" placeholder="" />
             </div>
           </div>
+
           <div class="row mb-3">
-            <label class="col-sm-2 col-form-label" for="basic-default-email">Email</label>
+            <label class="col-sm-2 col-form-label" >Type</label>
             <div class="col-sm-10">
-              <div class="input-group input-group-merge">
-                <input type="text" id="basic-default-email" class="form-control" placeholder="john.doe" aria-label="john.doe" aria-describedby="basic-default-email2" />
-                <span class="input-group-text" id="basic-default-email2">@example.com</span>
+                <input type="text"  class="form-control"  name="companyType"  />
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label" >Email</label>
+            <div class="col-sm-10">
+              <input type="email"  class="form-control " name="companyEmail" />
+            </div>
+          </div>
+
+          <div class="row mb-3">
+              <label class="col-sm-2 col-form-label" >Link</label>
+              <div class="col-sm-10">
+                  <input type="url"  class="form-control " name="companyLink" />
               </div>
-              <div class="form-text"> You can use letters, numbers & periods </div>
-            </div>
           </div>
-          <div class="row mb-3">
-            <label class="col-sm-2 col-form-label" for="basic-default-phone">Phone No</label>
-            <div class="col-sm-10">
-              <input type="text" id="basic-default-phone" class="form-control phone-mask" placeholder="658 799 8941" aria-label="658 799 8941" aria-describedby="basic-default-phone" />
+
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" >Phone No</label>
+                <div class="col-sm-10">
+                    <input type="text" name="companyPhone" class="form-control phone-mask" placeholder="658 799 8941" aria-label="658 799 8941" aria-describedby="basic-default-phone" />
+                </div>
             </div>
-          </div>
-          <div class="row mb-3">
-            <label class="col-sm-2 col-form-label" for="basic-default-message">Message</label>
-            <div class="col-sm-10">
-              <textarea id="basic-default-message" class="form-control" placeholder="Hi, Do you have a moment to talk Joe?" aria-label="Hi, Do you have a moment to talk Joe?" aria-describedby="basic-icon-default-message2"></textarea>
+
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="basic-default-message">Description</label>
+                <div class="col-sm-10">
+                    <textarea id="basic-default-message" class="form-control" name="companyDescription" placeholder="" ></textarea>
+                </div>
             </div>
-          </div>
+
           <div class="row justify-content-end">
             <div class="col-sm-10">
               <button type="submit" class="btn btn-primary">Send</button>
             </div>
           </div>
+
         </form>
       </div>
     </div>

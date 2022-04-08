@@ -134,17 +134,17 @@
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div data-i18n="Jobs Administration">Jobs Administration</div>
+                <div data-i18n="Companies Administration">Companies Administration</div>
             </a>
             <ul class="menu-sub open">
-                <li class="menu-item">
+                <li class="menu-item active" >
                     <a href="forms-input-groups.html" class="menu-link">
-                        <div data-i18n="Add Job">Add Job</div>
+                        <div data-i18n="Add Company">Add Company</div>
                     </a>
                 </li>
-                <li class="menu-item active ">
+                <li class="menu-item  ">
                     <a href="forms-basic-inputs.html" class="menu-link">
-                        <div data-i18n="Show Jobs">Show Jobs</div>
+                        <div data-i18n="Show Companies">Show Companies</div>
                     </a>
                 </li>
             </ul>
@@ -176,15 +176,6 @@
 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
 
 
-
-
-
-
-
-
-
-
-
       <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0   d-xl-none ">
         <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
           <i class="bx bx-menu bx-sm"></i>
@@ -205,9 +196,6 @@
           </div>
         </div>
         <!-- /Search -->
-
-
-
 
 
         <ul class="navbar-nav flex-row align-items-center ms-auto">
@@ -645,8 +633,8 @@
         <h5 class="mb-0">Company Details</h5>
       </div>
       <div class="card-body">
-        <form>
-
+        <form action="addCompany" method="post" enctype="multipart/form-data">
+        @csrf
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
             <div class="col-sm-10">

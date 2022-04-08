@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CompaniesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +40,7 @@ Route::get('/partners', function () {
 Route::get('/services', function () {
     return view('services');
 });
-Route::get('/companies', function () {
-    return view('admin.companies');
-});
+
+//
+Route::view('addCompany','admin.companies');
+Route::post('addCompany',[CompaniesController::class,'addCompany']);

@@ -1,0 +1,126 @@
+body{
+    background-color: #f8f9fa;
+}
+.img-container, .name-container{
+    position: relative;
+}
+
+.name-container .edit-button,
+.img-container .edit-button {
+    /* background-color: #0dcaf0; */
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    /* border: 2px solid white */
+}
+
+.img-container .edit-button {
+    bottom: 25%;
+    right: -3%;
+    box-shadow: 0px 0px 4px 1px grey;
+
+}
+/* .img-container .edit-button:hover{
+    box-shadow: 0px 0px 10px 0px grey;
+
+} */
+.name-container .edit-button{
+    /* bottom: 0;
+    right: 0; */
+    position: static;
+    display: inline;
+    background-color: transparent;
+    border: none;
+}
+h5.name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-container img:last-child,
+.name-container .edit-button img{
+    width: 16px;
+}
+
+
+.tabs ul{
+    margin: 0;
+    padding-inline-start: 0;
+}
+.tabs li{
+    list-style-type: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-block: 15px;
+    color: #aaa;
+    transition: .3s;
+}
+.tabs li:hover{
+    color: rgb(0, 0, 0);
+    /* padding-inline-start: 5px; */
+}
+.tabs li img{
+    max-width: 30px;
+}
+.edit{
+    position: relative;
+}
+.personal-info h2{
+    font-size: 2rem;
+}
+.personal-info div span:first-child{
+    font-weight: bolder;
+    font-size: 1.2rem;
+    min-width: 150px;
+}
+.personal-info div{
+    display: flex
+}
+
+.edit .edit-button {
+    position: absolute;
+    top: 0;
+    left: 5%;
+}
+.edit .edit-button img{
+    width: 30px;
+}
+
+.card-body p{
+    margin: 0
+}
+.btns{
+    bottom: 0;
+    right: 0;
+}
+@media (max-width: 768px) {
+    .sideBar{
+        width: 110px !important;
+        padding: 0 12px;
+    }
+    .sideBar .img-container > img{
+        width: 70px;
+    }
+    .sideBar .edit-button {
+        display: none;
+    }
+    .sideBar .name{
+        font-size: .7rem;
+    }
+    .sideBar ul li{
+        font-size: 0;
+    }
+    .sideBar .profile{
+        width: 90px !important;
+    }
+    .card{
+        font-size: .7rem !important;
+    }
+    .card-title{
+        font-size: .9rem;
+    }
+}
+

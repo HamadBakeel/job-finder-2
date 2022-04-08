@@ -5,153 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.css">
-    <title>Dashboard</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="css/profile.css">
 
-    <style>
-        body{
-            background-color: #f8f9fa;
-        }
-        .img-container, .name-container{
-            position: relative;
-        }
+    <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/flag-icons.css" />
 
-        .name-container .edit-button,
-        .img-container .edit-button {
-            /* background-color: #0dcaf0; */
-            border-radius: 50%;
-            padding: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            /* border: 2px solid white */
-        }
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-semi-dark.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
 
-        .img-container .edit-button {
-            bottom: 25%;
-            right: -3%;
-            box-shadow: 0px 0px 4px 1px grey;
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/animate-css/animate.css">
 
-        }
-        /* .img-container .edit-button:hover{
-            box-shadow: 0px 0px 10px 0px grey;
+    <!-- Page CSS -->
 
-        } */
-        .name-container .edit-button{
-            /* bottom: 0;
-            right: 0; */
-            position: static;
-            display: inline;
-            background-color: transparent;
-            border: none;
+    <!-- Helpers -->
+    <script src="assets/vendor/js/helpers.js"></script>
+
+    <script src="assets/js/config.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
         }
-        h5.name{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .img-container img:last-child,
-        .name-container .edit-button img{
-            width: 16px;
-        }
- 
-        
-        .tabs ul{
-            margin: 0;
-            padding-inline-start: 0;
-        }
-        .tabs li{
-            list-style-type: none;
-            font-weight: bold;
-            cursor: pointer;
-            margin-block: 15px;
-            color: #aaa;
-            transition: .3s;
-        }
-        .tabs li:hover{
-            color: rgb(0, 0, 0);
-            /* padding-inline-start: 5px; */
-        }
-        .tabs li img{
-            max-width: 30px;
-        }
-        .edit{
-            position: relative;
-        }
-        .personal-info h2{
-            font-size: 2rem;
-        }
-        .personal-info div span:first-child{
-            font-weight: bolder;
-            font-size: 1.2rem;
-            min-width: 150px;
-        }
-        .personal-info div{
-            display: flex
-        }
-        
-        .edit .edit-button {
-            position: absolute;
-            top: 0;
-            left: 5%;
-        }
-        .edit .edit-button img{
-            width: 30px;
-        }
-           
-        .card-body p{
-            margin: 0
-        }
-        .btns{
-            bottom: 0;
-            right: 0;
-        }
-        @media (max-width: 768px) {
-            .sideBar{
-                width: 110px !important;
-                padding: 0 12px;
-            }
-               .sideBar .img-container > img{
-                width: 70px;
-            }
-            .sideBar .edit-button {
-                display: none;
-            }
-            .sideBar .name{
-                font-size: .7rem;
-            }
-            .sideBar ul li{
-                font-size: 0;
-            }
-            .sideBar .profile{
-                width: 90px !important;
-            }
-            .card{
-                font-size: .7rem !important;
-            }
-            .card-title{
-                font-size: .9rem;
-            }
-        }
-    </style>
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
 </head>
 <body>
     <section class="dashboard container-fluid d-flex p-0">
         <div class="sideBar col-3 col-md-2 " style="background-color: #e5e5e5;  height:100vh; width: 220px">
-            <div class="profile col rounded-pill bg-white mt-2 d-flex align-items-center m-auto flex-column" 
+            <div class="profile col rounded-pill bg-white mt-2 d-flex align-items-center m-auto flex-column"
                 style="    width: 180px;
                 height: 80vh;"
             >
             <div class="profile-content ">
                 <div class="img-container">
+
                     <img src="assets/images/profileIimage.jfif"  alt="" width="150"class="pb-4 rounded-circle  profile-img">
                     <button class="btn edit-button "><img src="assets/images/edit.png" alt=""></button>
                 </div>
                <div class="name-container">
                 <h5 class="name fw-bolde text-center">Hamad Bakeel
                 <button class="btn edit-button"><img src="assets/images/edit.png" alt=""></button>
-            </h5>   
+            </h5>
             </div>
             </div>
 
@@ -166,34 +73,93 @@
             </div>
             </div>
         </div>
+
         <div class="col-9 p-3 bg-light">
             <div class="tabs-content">
                 <div class="personal-info edit ">
+
                     <h2 class="mb-5 text-center">Personal Info</h2>
                     <div class="mb-3">
                         <span >First Name</span>
-                        <span >Hamad </span>
+                        <span >{{$user->first_name}} </span>
+                        <br>
+
+
+
                     </div>
                     <div class="mb-3">
                         <span>Last Name</span>
-                        <span>Bakeel</span>
+                        <span>{{$user->last_name}}</span>
                     </div>
                     <div class="mb-3">
-                        <span>Home Address</span>
-                        <span>Mada Center 8th floor, 379 Hudson St, New York, NY 10018 US</span>
+                        <span >Email</span>
+                        <span >{{$user->email}} </span>
+                    </div>
+                    <div class="mb-3">
+                        <span >Bio</span>
+                        <span >{{$user->bio}}</span>
+                    </div>
+                    <div class="mb-3">
+                        <span>Address</span>
+                        <span>{{$user->location}}</span>
                     </div>
                     <div class="mb-3">
                         <span>Phone Number</span>
-                        <span>+12123344589</span>
+                        <span>{{$user->phone}}</span>
                     </div>
                     <div class="mb-3">
                         <span>Job Title</span>
                         <span>Full Stack Developer</span>
                     </div>
-                    <button class="btn edit-button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img src="assets/images/edit.png" alt=""></button>
-                  
+{{--                    <button class="btn edit-button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img src="assets/images/edit.png" alt=""></button>--}}
+
+                    <button class="btn edit-button"  data-bs-toggle="modal" data-bs-target="#basicModal">
+                        <img src="assets/images/edit.png" alt="">
+                    </button>
+
                 </div>
-                
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="mt-3">
+                        <!-- Button trigger modal -->
+
+                        <!-- Modal -->
+                        <div class="modal animate__animated animate__jackInTheBox fade" id="basicModal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col mb-3">
+                                                <label for="nameBasic" class="form-label">Name</label>
+                                                <input type="text" id="nameBasic" class="form-control" placeholder="Enter Name">
+                                            </div>
+                                        </div>
+                                        <div class="row g-2">
+                                            <div class="col mb-0">
+                                                <label for="emailBasic" class="form-label">Email</label>
+                                                <input type="text" id="emailBasic" class="form-control" placeholder="xxxx@xxx.xx">
+                                            </div>
+                                            <div class="col mb-0">
+                                                <label for="dobBasic" class="form-label">DOB</label>
+                                                <input type="text" id="dobBasic" class="form-control" placeholder="DD / MM / YY">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="courses edit d-none ">
                     <h2 class="mb-5 text-center">Courses</h2>
                     <button class="btn edit-button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -207,9 +173,9 @@
                             <div class="card-body position-relative">
                               <h5 class="card-title mb-3 fw-bolder">HTML5</h5>
                               <p class="card-text"><strong>Studied In : </strong>Rwad Academy</p>
-                              <p class="card-text"><strong>Date : </strong>2021</p> 
-                              <p class="card-text"><strong>instructor : </strong>Eng. Mokhtar Ghalib</p>  
-                              <p class="card-text"><strong>Mark : </strong>100%</p>  
+                              <p class="card-text"><strong>Date : </strong>2021</p>
+                              <p class="card-text"><strong>instructor : </strong>Eng. Mokhtar Ghalib</p>
+                              <p class="card-text"><strong>Mark : </strong>100%</p>
                               <div class="btns position-absolute">
                                 <button class="btn text-danger"><i class="fas fa-trash-alt"></i></button>
                                 <button class="btn text-success"><i class="far fa-edit"></i></button>
@@ -227,9 +193,9 @@
                             <div class="card-body">
                                 <h5 class="card-title mb-3 fw-bolder">CSS3</h5>
                                 <p class="card-text"><strong>Studied In : </strong>Rwad Academy</p>
-                                <p class="card-text"><strong>Date : </strong>2021</p> 
-                                <p class="card-text"><strong>instructor : </strong>Eng. Mokhtar Ghalib</p>  
-                                <p class="card-text"><strong>Mark : </strong>100%</p> 
+                                <p class="card-text"><strong>Date : </strong>2021</p>
+                                <p class="card-text"><strong>instructor : </strong>Eng. Mokhtar Ghalib</p>
+                                <p class="card-text"><strong>Mark : </strong>100%</p>
                                 <div class="btns position-absolute">
                                     <button class="btn text-danger"><i class="fas fa-trash-alt"></i></button>
                                     <button class="btn text-success"><i class="far fa-edit"></i></button>
@@ -247,9 +213,9 @@
                             <div class="card-body">
                                 <h5 class="card-title mb-3 fw-bolder">JavaScript</h5>
                                 <p class="card-text"><strong>Studied In : </strong>Rwad Academy</p>
-                                <p class="card-text"><strong>Date : </strong>2021</p> 
-                                <p class="card-text"><strong>instructor : </strong>Eng. Mokhtar Ghalib</p>  
-                                <p class="card-text"><strong>Mark : </strong>100%</p> 
+                                <p class="card-text"><strong>Date : </strong>2021</p>
+                                <p class="card-text"><strong>instructor : </strong>Eng. Mokhtar Ghalib</p>
+                                <p class="card-text"><strong>Mark : </strong>100%</p>
                                 <div class="btns position-absolute">
                                     <button class="btn text-danger"><i class="fas fa-trash-alt"></i></button>
                                     <button class="btn text-success"><i class="far fa-edit"></i></button>
@@ -267,9 +233,9 @@
                             <div class="card-body">
                                 <h5 class="card-title mb-3 fw-bolder">React</h5>
                                 <p class="card-text"><strong>Studied In : </strong>Rwad Academy</p>
-                                <p class="card-text"><strong>Date : </strong>2021</p> 
-                                <p class="card-text"><strong>instructor : </strong>Eng. Mokhtar Ghalib</p>  
-                                <p class="card-text"><strong>Mark : </strong>100%</p> 
+                                <p class="card-text"><strong>Date : </strong>2021</p>
+                                <p class="card-text"><strong>instructor : </strong>Eng. Mokhtar Ghalib</p>
+                                <p class="card-text"><strong>Mark : </strong>100%</p>
                                 <div class="btns position-absolute">
                                     <button class="btn text-danger"><i class="fas fa-trash-alt"></i></button>
                                     <button class="btn text-success"><i class="far fa-edit"></i></button>
@@ -351,7 +317,7 @@
                         <div class="input-group flex-nowrap mb-3">
                             <span class="input-group-text" id="addon-wrapping">Home Address</span>
                             <input type="text" class="form-control"  aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>                
+                        </div>
                         <div class="input-group flex-nowrap mb-3">
                             <span class="input-group-text" id="addon-wrapping">Phone</span>
                             <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
@@ -392,7 +358,7 @@
                         <div class="input-group flex-nowrap mb-3">
                             <span class="input-group-text" id="addon-wrapping">Home Address</span>
                             <input type="text" class="form-control"  aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>                
+                        </div>
                         <div class="input-group flex-nowrap mb-3">
                             <span class="input-group-text" id="addon-wrapping">Phone</span>
                             <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
@@ -429,7 +395,7 @@
                             <div class="input-group flex-nowrap mb-3">
                             <span class="input-group-text" id="addon-wrapping">Date</span>
                             <input type="date" class="form-control"  aria-label="Username" aria-describedby="addon-wrapping">
-                            </div>                
+                            </div>
                             <div class="input-group flex-nowrap mb-3">
                             <span class="input-group-text" id="addon-wrapping">Mark</span>
                             <input type="number" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
@@ -461,7 +427,7 @@
                            <div class="input-group flex-nowrap mb-3">
                            <span class="input-group-text" id="addon-wrapping">Experience</span>
                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
-                           </div>                
+                           </div>
                            <div class="input-group flex-nowrap mb-3">
                            <span class="input-group-text" id="addon-wrapping">Discription</span>
                            <input type="number" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">

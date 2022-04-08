@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompaniesController;
-/*
+use App\Http\Controllers\Website_usersController;/*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -22,9 +22,7 @@ Route::get('/about', function () {
 Route::get('/contact_us', function () {
     return view('contact_us');
 });
-Route::get('/profile', function () {
-    return view('profileSettings');
-});
+
 Route::get('/job_details', function () {
     return view('job_details');
 });
@@ -44,3 +42,8 @@ Route::get('/services', function () {
 //
 Route::view('addCompany','admin.companies');
 Route::post('addCompany',[CompaniesController::class,'addCompany']);
+
+Route::get('/profile', function () {
+    return view('profile.profileSettings');
+});
+Route::get('show',[Website_usersController::class,'show']);

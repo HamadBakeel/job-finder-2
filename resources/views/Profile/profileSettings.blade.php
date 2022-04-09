@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="assets/vendor/libs/typeahead-js/typeahead.css" />
     <link rel="stylesheet" href="assets/vendor/libs/animate-css/animate.css">
+{{--    <link rel="stylesheet" href="assets/vendor/libs/sweetalert2/sweetalert2.css" />--}}
 
     <!-- Page CSS -->
 
@@ -41,6 +42,11 @@
         gtag('js', new Date());
         gtag('config', 'GA_MEASUREMENT_ID');
     </script>
+    <style>
+        .swal2-container{
+            z-index: 1100;
+        }
+    </style>
 </head>
 <body>
     <section class="dashboard container-fluid d-flex p-0">
@@ -52,7 +58,7 @@
             <div class="profile-content ">
                 <div class="img-container">
 
-                    <img src="assets/images/profileIimage.jfif"  alt="" width="150"class="pb-4 rounded-circle  profile-img">
+                    <img src="{{$user->image}}"  alt="" width="150"class="pb-4 rounded-circle  profile-img">
                     <button class="btn edit-button "><img src="assets/images/edit.png" alt=""></button>
                 </div>
                <div class="name-container">
@@ -107,22 +113,20 @@
                         <span>Phone Number</span>
                         <span>{{$user->phone}}</span>
                     </div>
-                    <div class="mb-3">
-                        <span>Job Title</span>
-                        <span>Full Stack Developer</span>
-                    </div>
+{{--                    <div class="mb-3">--}}
+{{--                        <span>Job Title</span>--}}
+{{--                        <span>Full Stack Developer</span>--}}
+{{--                    </div>--}}
 {{--                    <button class="btn edit-button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img src="assets/images/edit.png" alt=""></button>--}}
 
-                    <button class="btn edit-button"  data-bs-toggle="modal" data-bs-target="#basicModal">
+                    <button class="btn edit-button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                         <img src="assets/images/edit.png" alt="">
                     </button>
 
                 </div>
 
-                <div class="col-lg-4 col-md-6">
+{{--                <div class="col-lg-4 col-md-6">
                     <div class="mt-3">
-                        <!-- Button trigger modal -->
-
                         <!-- Modal -->
                         <div class="modal animate__animated animate__jackInTheBox fade" id="basicModal" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -132,23 +136,26 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col mb-3">
-                                                <label for="nameBasic" class="form-label">Name</label>
-                                                <input type="text" id="nameBasic" class="form-control" placeholder="Enter Name">
+                                        <form action="editProfile">
+                                            <div class="row">
+                                                <div class="col mb-3">
+                                                    <label  class="form-label">Name</label>
+                                                    <input type="text" name="name" class="form-control" placeholder="Enter Name">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row g-2">
-                                            <div class="col mb-0">
-                                                <label for="emailBasic" class="form-label">Email</label>
-                                                <input type="text" id="emailBasic" class="form-control" placeholder="xxxx@xxx.xx">
+                                            <div class="row g-2">
+                                                <div class="col mb-0">
+                                                    <label for="emailBasic" class="form-label">Email</label>
+                                                    <input type="text" id="emailBasic" class="form-control" placeholder="xxxx@xxx.xx">
+                                                </div>
+                                                <div class="col mb-0">
+                                                    <label for="dobBasic" class="form-label">DOB</label>
+                                                    <input type="text" id="dobBasic" class="form-control" placeholder="DD / MM / YY">
+                                                </div>
                                             </div>
-                                            <div class="col mb-0">
-                                                <label for="dobBasic" class="form-label">DOB</label>
-                                                <input type="text" id="dobBasic" class="form-control" placeholder="DD / MM / YY">
-                                            </div>
-                                        </div>
+                                        </form>
                                     </div>
+
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Close</button>
                                         <button type="button" class="btn btn-primary">Save changes</button>
@@ -157,7 +164,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+        </div>--}}
 
 
                 <div class="courses edit d-none ">
@@ -298,155 +305,205 @@
             </div>
     </section>
         <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal animate__animated animate__jackInTheBox  fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Edit Personal Information</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <form action="editProfile" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Edit Personal Information</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="input-group flex-nowrap mb-3">
+                                <span class="input-group-text" id="addon-wrapping">First Name</span>
+                                <input type="text" name="first_name" class="form-control" value="{{$user->first_name}}" >
+                            </div>
+
+                            <div class="input-group flex-nowrap mb-3">
+                                <span class="input-group-text" id="addon-wrapping">Last Name</span>
+                                <input type="text" name="last_name" class="form-control" value="{{$user->last_name}}">
+                            </div>
+
+
+                            <div class="input-group flex-nowrap mb-3">
+                                <span class="input-group-text" id="addon-wrapping">Email</span>
+                                <input type="text" name="email" class="form-control" value="{{$user->email}}" >
+                            </div>
+
+                            <div class="input-group flex-nowrap mb-3">
+                                <span class="input-group-text" id="addon-wrapping">Location</span>
+                                <input type="text" name="location" class="form-control" value="{{$user->location}}">
+                            </div>
+
+                            <div class="input-group flex-nowrap mb-3">
+                                <span class="input-group-text" id="addon-wrapping">Image</span>
+                                <input type="file" name="image" class="form-control" value="{{$user->image}}">
+                            </div>
+
+                            <div class="input-group flex-nowrap mb-3">
+                                <span class="input-group-text" >bio</span>
+                                <textarea class="form-control" name="bio" cols="30" rows="5" >{{$user->bio}}</textarea>
+                            </div>
+
+    {{--                        <div class="input-group flex-nowrap mb-3">--}}
+    {{--                            <span class="input-group-text" id="addon-wrapping">Phone</span>--}}
+    {{--                            <input type="text" class="form-control" >--}}
+    {{--                        </div>--}}
+
+                        </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary" >Save</button>
+                            </div>
                     </div>
-                    <div class="modal-body">
-                        <div class="input-group flex-nowrap mb-3">
-                            <span class="input-group-text" id="addon-wrapping">First Name</span>
-                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
-                        <div class="input-group flex-nowrap mb-3">
-                            <span class="input-group-text" id="addon-wrapping">Last Name</span>
-                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
-                        <div class="input-group flex-nowrap mb-3">
-                            <span class="input-group-text" id="addon-wrapping">Home Address</span>
-                            <input type="text" class="form-control"  aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
-                        <div class="input-group flex-nowrap mb-3">
-                            <span class="input-group-text" id="addon-wrapping">Phone</span>
-                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
-                        <div class="input-group flex-nowrap mb-3">
-                            <span class="input-group-text" id="addon-wrapping">Job Title</span>
-                            <input type="text" class="form-control"  aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Understood</button>
-                        </div>
-                </div>
+                </form>
             </div>
         </div>
 
         <script src="js/bootstrap.bundle.js"></script>
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+{{--    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>--}}
+{{--    <script src="../../assets/vendor/libs/popper/popper.js"></script>--}}
+{{--    <script src="../../assets/vendor/js/bootstrap.js"></script>--}}
+{{--    <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>--}}
+
+{{--    <script src="../../assets/vendor/libs/hammer/hammer.js"></script>--}}
+{{--    <script src="../../assets/vendor/libs/i18n/i18n.js"></script>--}}
+{{--    <script src="../../assets/vendor/libs/typeahead-js/typeahead.js"></script>--}}
+
+{{--    <script src="../../assets/vendor/js/menu.js"></script>--}}
+{{--    <!-- endbuild -->--}}
+
+{{--    <!-- Vendors JS -->--}}
+{{--    <script src="assets/vendor/libs/sweetalert2/sweetalert2.js"></script>--}}
+
+{{--    <!-- Main JS -->--}}
+{{--    <script src="assets/js/main.js"></script>--}}
+
+{{--    <!-- Page JS -->--}}
+{{--    <script src="assets/js/extended-ui-sweetalert2.js"></script>--}}
+
+
     <script src="js/jQuery.min.js"></script>
-    <script >
-        $('#personal').click(function(){
-            $('.personal-info').removeClass("d-none");
-            $('.skills, .experince , .qualifications , .courses').addClass("d-none");
-            $('.modal-content').html(`
-            <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Edit Personal Information</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="input-group flex-nowrap mb-3">
-                            <span class="input-group-text" id="addon-wrapping">First Name</span>
-                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
+        <script >
+            $('#personal').click(function(){
+                $('.personal-info').removeClass("d-none");
+                $('.skills, .experince , .qualifications , .courses').addClass("d-none");
+                $('.modal-content').html(`
+                <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Edit Personal Information</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="input-group flex-nowrap mb-3">
-                            <span class="input-group-text" id="addon-wrapping">Last Name</span>
-                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
-                        <div class="input-group flex-nowrap mb-3">
-                            <span class="input-group-text" id="addon-wrapping">Home Address</span>
-                            <input type="text" class="form-control"  aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
-                        <div class="input-group flex-nowrap mb-3">
-                            <span class="input-group-text" id="addon-wrapping">Phone</span>
-                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
-                        <div class="input-group flex-nowrap mb-3">
-                            <span class="input-group-text" id="addon-wrapping">Job Title</span>
-                            <input type="text" class="form-control"  aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Understood</button>
-                        </div>
-            `)
-        });
-        $('#courses').click(function(){
-            $('.courses').removeClass("d-none");
-            // $('.courses').slideUp()
-            $('.skills, .experince , .qualifications , .personal-info').addClass("d-none");
-            $('.modal-content').html(`
-            <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Add A Course</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="input-group flex-nowrap mb-3">
-                            <span class="input-group-text" id="addon-wrapping">Course Logo</span>
-                            <input type="file" class="form-control" aria-label="Username" placeholder="choose a file" aria-describedby="addon-wrapping">
+                        <div class="modal-body">
+                            <div class="input-group flex-nowrap mb-3">
+                                <span class="input-group-text" id="addon-wrapping">First Name</span>
+                                <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
                             </div>
                             <div class="input-group flex-nowrap mb-3">
-                            <span class="input-group-text" id="addon-wrapping">Course Name</span>
-                            <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
+                                <span class="input-group-text" id="addon-wrapping">Last Name</span>
+                                <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
                             </div>
                             <div class="input-group flex-nowrap mb-3">
-                            <span class="input-group-text" id="addon-wrapping">Date</span>
-                            <input type="date" class="form-control"  aria-label="Username" aria-describedby="addon-wrapping">
+                                <span class="input-group-text" id="addon-wrapping">Home Address</span>
+                                <input type="text" class="form-control"  aria-label="Username" aria-describedby="addon-wrapping">
                             </div>
                             <div class="input-group flex-nowrap mb-3">
-                            <span class="input-group-text" id="addon-wrapping">Mark</span>
-                            <input type="number" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
+                                <span class="input-group-text" id="addon-wrapping">Phone</span>
+                                <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
                             </div>
                             <div class="input-group flex-nowrap mb-3">
-                            <span class="input-group-text" id="addon-wrapping">Instructor</span>
-                            <input type="text" class="form-control"  aria-label="Username" aria-describedby="addon-wrapping">
+                                <span class="input-group-text" id="addon-wrapping">Job Title</span>
+                                <input type="text" class="form-control"  aria-label="Username" aria-describedby="addon-wrapping">
                             </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Understood</button>
+                            </div>
+                `)
+            });
+            $('#courses').click(function(){
+                $('.courses').removeClass("d-none");
+                // $('.courses').slideUp()
+                $('.skills, .experince , .qualifications , .personal-info').addClass("d-none");
+                $('.modal-content').html(`
+                <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Add A Course</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Add</button>
-                        </div>
-            `);
-        });
-        $('#experince').click(function(){
-            $('.experince').removeClass("d-none");
-            $('.skills, .courses , .qualifications , .personal-info').addClass("d-none");
-            $('.modal-content').html(`
-            <div class="modal-header">
-                   <h5 class="modal-title" id="staticBackdropLabel">Add An Experience</h5>
-                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                   </div>
-                   <div class="modal-body">
-                       <div class="input-group flex-nowrap mb-3">
-                           <span class="input-group-text" id="addon-wrapping">Experience Logo</span>
-                           <input type="file" class="form-control" aria-label="Username" placeholder="choose a file" aria-describedby="addon-wrapping">
-                           </div>
-                           <div class="input-group flex-nowrap mb-3">
-                           <span class="input-group-text" id="addon-wrapping">Experience</span>
-                           <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
-                           </div>
-                           <div class="input-group flex-nowrap mb-3">
-                           <span class="input-group-text" id="addon-wrapping">Discription</span>
-                           <input type="number" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
-                           </div>
+                        <div class="modal-body">
+                            <div class="input-group flex-nowrap mb-3">
+                                <span class="input-group-text" id="addon-wrapping">Course Logo</span>
+                                <input type="file" class="form-control"  placeholder="choose a file" aria-describedby="addon-wrapping">
+                                </div>
+                                <div class="input-group flex-nowrap mb-3">
+                                <span class="input-group-text" id="addon-wrapping">Course Name</span>
+                                <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
+                                </div>
+                                <div class="input-group flex-nowrap mb-3">
+                                <span class="input-group-text" id="addon-wrapping">Date</span>
+                                <input type="date" class="form-control"  aria-label="Username" aria-describedby="addon-wrapping">
+                                </div>
+                                <div class="input-group flex-nowrap mb-3">
+                                <span class="input-group-text" id="addon-wrapping">Mark</span>
+                                <input type="number" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
+                                </div>
+                                <div class="input-group flex-nowrap mb-3">
+                                <span class="input-group-text" id="addon-wrapping">Instructor</span>
+                                <input type="text" class="form-control"  aria-label="Username" aria-describedby="addon-wrapping">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Add</button>
+                            </div>
+                `);
+            });
+            $('#experince').click(function(){
+                $('.experince').removeClass("d-none");
+                $('.skills, .courses , .qualifications , .personal-info').addClass("d-none");
+                $('.modal-content').html(`
+                <div class="modal-header">
+                       <h5 class="modal-title" id="staticBackdropLabel">Add An Experience</h5>
+                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                        </div>
-                       <div class="modal-footer">
-                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                           <button type="button" class="btn btn-primary">Add</button>
-                       </div>
-            `)
-        });
-        $('#qualifications').click(function(){
-            $('.qualifications').removeClass("d-none");
-            $('.skills, .experince , .courses , .personal-info').addClass("d-none");
-        });
-        $('#skills').click(function(){
-            $('.skills').removeClass("d-none");
-            $('.courses, .experince , .qualifications , .personal-info').addClass("d-none");
-        });
-    </script>
+                       <div class="modal-body">
+                           <div class="input-group flex-nowrap mb-3">
+                               <span class="input-group-text" id="addon-wrapping">Experience Logo</span>
+                               <input type="file" class="form-control" aria-label="Username" placeholder="choose a file" aria-describedby="addon-wrapping">
+                               </div>
+                               <div class="input-group flex-nowrap mb-3">
+                               <span class="input-group-text" id="addon-wrapping">Experience</span>
+                               <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
+                               </div>
+                               <div class="input-group flex-nowrap mb-3">
+                               <span class="input-group-text" id="addon-wrapping">Discription</span>
+                               <input type="number" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
+                               </div>
+                           </div>
+                           <div class="modal-footer">
+                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                               <button type="button" class="btn btn-primary">Add</button>
+                           </div>
+                `)
+            });
+            $('#qualifications').click(function(){
+                $('.qualifications').removeClass("d-none");
+                $('.skills, .experince , .courses , .personal-info').addClass("d-none");
+            });
+            $('#skills').click(function(){
+                $('.skills').removeClass("d-none");
+                $('.courses, .experince , .qualifications , .personal-info').addClass("d-none");
+            });
+        </script>
+
+
+
+
+
 </body>
 </html>

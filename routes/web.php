@@ -47,3 +47,4 @@ Route::get('/profile', function () {
     return view('profile.profileSettings');
 });
 Route::get('show',[Website_usersController::class,'show']);
+Route::post('editProfile',[Website_usersController::class,'editProfile']);

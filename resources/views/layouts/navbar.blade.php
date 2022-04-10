@@ -31,7 +31,7 @@
                 >
                     Post a Job
                 </button>
-                <a href="../login_register.blade.php"
+                <a href="../register.blade.php"
                    style="position: absolute;
                  right: 55px;
           text-decoration: none"

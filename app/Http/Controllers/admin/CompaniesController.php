@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Companies;
-use phpDocumentor\Reflection\Types\Integer;
+use Illuminate\Http\Request;
+use function redirect;
+use function view;
 
 class CompaniesController extends Controller
 {

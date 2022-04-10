@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Models\User;
+namespace App\Http\Controllers\admin;
+use App\Http\Controllers\Controller;
 use App\Models\Website_user;
 use Illuminate\Http\Request;
-use function Symfony\Component\String\u;
+use function public_path;
+use function redirect;
+use function view;
 
 class Website_usersController extends Controller
 {
@@ -33,7 +35,7 @@ class Website_usersController extends Controller
         return redirect('show');
     }
 
-    public function uploadImage(Request $request, $user): string
+    public static function uploadImage(Request $request, $user): string
     {
         $file = $request->file('image');
         $filename= $file->getClientOriginalName();

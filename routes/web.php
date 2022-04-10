@@ -1,8 +1,14 @@
 <?php
 
+use App\Http\Controllers\admin\AuthController;
+use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\admin\CompaniesController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\SettingsController;
+use App\Http\Controllers\admin\Website_usersController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CompaniesController;
-use App\Http\Controllers\Website_usersController;/*
+
+/*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -29,8 +35,8 @@ Route::get('/job_details', function () {
 Route::get('/job_offers', function () {
     return view('job_offers');
 });
-Route::get('/login_register', function () {
-    return view('login_register');
+Route::get('/register', function () {
+    return view('register');
 });
 Route::get('/partners', function () {
     return view('partners');
@@ -39,6 +45,38 @@ Route::get('/services', function () {
     return view('services');
 });
 
+
+
+
+Route::get('/create_user',[AuthController::class,'createUser'])->name('create_user');
+
+Route::post('/save_user',[AuthController::class,'register'])->name('save_user');
+
+Route::get('/home',[DashboardController::class,'dashboard'])->name('home');
+
+Route::get('/show_all_users',[AuthController::class,'listAll'])->name("show_users");
+
+Route::get('/new_category',[CategoriesController::class,'create'])->name('new_category');
+
+Route::get('/login',[AuthController::class,'showLogin'])->name('login');
+
+
+Route::group(['middleware'=>'auth'],function(){
+    Route::group(['middleware'=>'role:admin|super_admin'],function(){
+
+        Route::get('/dashboard',[DashboardController::class,'adminDash'])->name('dashboard');
+
+    });
+
+    Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+});
+
+
+Route::post('/do_login',[AuthController::class,'login'])->name('do_login');
+
+Route::get('/generate_roles',[SettingsController::class,'generateRoles'])->name('generate_roles');
+
+
 //
 Route::view('addCompany','admin.companies');
 Route::post('addCompany',[CompaniesController::class,'addCompany']);
@@ -46,5 +84,5 @@ Route::post('addCompany',[CompaniesController::class,'addCompany']);
 Route::get('/profile', function () {
     return view('profile.profileSettings');
 });
-Route::get('show',[Website_usersController::class,'show']);
+Route::get('show',[Website_usersController::class,'show'])->name('showProfile');
 Route::post('editProfile',[Website_usersController::class,'editProfile']);

@@ -116,6 +116,7 @@ class AuthController extends Controller
 //            ]);
             $u->attachRole('client');
 //            exit();
+            Auth::login($u);
             return redirect()->route('showProfile')
             ->with(['success'=>'user created successfully']);
         }

@@ -4,32 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="{{@asset('css/bootstrap.css')}}">
     <title>Profile</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="{{@asset('css/profile.css')}}">
 
-    <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css" />
-    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
-    <link rel="stylesheet" href="assets/vendor/fonts/flag-icons.css" />
+    <link rel="stylesheet" href="{{ @asset('assets/vendor/fonts/boxicons.css')}}" />
+    <link rel="stylesheet" href="{{ @asset('assets/vendor/fonts/fontawesome.css')}}" />
+    <link rel="stylesheet" href="{{ @asset('assets/vendor/fonts/flag-icons.css')}}" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="assets/vendor/css/rtl/theme-semi-dark.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="assets/css/demo.css" />
+    <link rel="stylesheet" href="{{ @asset('assets/vendor/css/rtl/core.css')}}" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{{ @asset('assets/vendor/css/rtl/theme-semi-dark.css')}}" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{{ @asset('assets/css/demo.css')}}" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="assets/vendor/libs/typeahead-js/typeahead.css" />
-    <link rel="stylesheet" href="assets/vendor/libs/animate-css/animate.css">
-{{--    <link rel="stylesheet" href="assets/vendor/libs/sweetalert2/sweetalert2.css" />--}}
+    <link rel="stylesheet" href="{{ @asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}" />
+    <link rel="stylesheet" href="{{ @asset('assets/vendor/libs/typeahead-js/typeahead.css')}}" />
+    <link rel="stylesheet" href="{{ @asset('assets/vendor/libs/animate-css/animate.css')}}">
+{{--    <link rel="stylesheet" href="{{ @asset('assets/vendor/libs/sweetalert2/sweetalert2.css')}}" />--}}
 
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="assets/vendor/js/helpers.js"></script>
+    <script src="{{ @asset('assets/vendor/js/helpers.js')}}"></script>
 
-    <script src="assets/js/config.js"></script>
+    <script src="{{ @asset('assets/js/config.js')}}"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
@@ -49,6 +49,7 @@
     </style>
 </head>
 <body>
+
     <section class="dashboard container-fluid d-flex p-0">
         <div class="sideBar col-3 col-md-2 " style="background-color: #e5e5e5;  height:100vh; width: 220px">
             <div class="profile col rounded-pill bg-white mt-2 d-flex align-items-center m-auto flex-column"
@@ -56,42 +57,43 @@
                 height: 80vh;"
             >
             <div class="profile-content ">
+
                 <div class="img-container">
 
-                    <img src="{{$user->image}}"  alt="" width="150"class="pb-4 rounded-circle  profile-img">
-                    <button class="btn edit-button "><img src="assets/images/edit.png" alt=""></button>
+                    <img src="{{@asset($user->image)}}"  alt="" width="150"class="pb-4 rounded-circle  profile-img">
+                    <button class="btn edit-button "><img src="{{ @asset('assets/images/edit.png')}}" alt=""></button>
                 </div>
                <div class="name-container">
-                <h5 class="name fw-bolde text-center">Hamad Bakeel
-                <button class="btn edit-button"><img src="assets/images/edit.png" alt=""></button>
+                <h5 class="name fw-bolde text-center"> {{$user->first_name }} {{ $user->last_name }}
+                <button class="btn edit-button"><img src="{{ @asset('assets/images/edit.png')}}" alt=""></button>
             </h5>
             </div>
             </div>
 
             <div class="tabs">
                 <ul class="mt-5">
-                    <li id="personal"><img src="assets/images/personal-info.svg" alt=""> Personal Info</li>
-                    <li id="courses"><img src="assets/images/svg/courses.svg" alt=""> Course</li>
-                    <li id="experince"><img src="assets/images/svg/experince.png" alt=""> Experience</li>
-                    <li id="qualifications"><img src="assets/images/qualification.png" alt=""> Qualification</li>
-                    <li id="skills"><img src="assets/images/skills.png" alt=""> Skills</li>
+                    <li id="personal"><img src="{{ @asset('assets/images/personal-info.svg')}}" alt=""> Personal Info</li>
+                    <li id="courses"><img src="{{ @asset('assets/images/svg/courses.svg')}}" alt=""> Course</li>
+                    <li id="experince"><img src="{{ @asset('assets/images/svg/experince.png')}}" alt=""> Experience</li>
+                    <li id="qualifications"><img src="{{ @asset('assets/images/qualification.png')}}" alt=""> Qualification</li>
+                    <li id="skills"><img src="{{ @asset('assets/images/skills.png')}}" alt=""> Skills</li>
                 </ul>
             </div>
             </div>
         </div>
 
         <div class="col-9 p-3 bg-light">
+                    <a href="logout" class="position-absolute " style="right: 20px; top: 25px">
+                        <i class="fa-solid fa-logout"></i>
+                        logout
+                    </a>
             <div class="tabs-content">
                 <div class="personal-info edit ">
-
                     <h2 class="mb-5 text-center">Personal Info</h2>
                     <div class="mb-3">
                         <span >First Name</span>
                         <span >{{$user->first_name}} </span>
                         <br>
-
-
-
                     </div>
                     <div class="mb-3">
                         <span>Last Name</span>
@@ -117,10 +119,10 @@
 {{--                        <span>Job Title</span>--}}
 {{--                        <span>Full Stack Developer</span>--}}
 {{--                    </div>--}}
-{{--                    <button class="btn edit-button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img src="assets/images/edit.png" alt=""></button>--}}
+{{--                    <button class="btn edit-button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img src="{{ @asset('assets/images/edit.png')}}" alt=""></button>--}}
 
                     <button class="btn edit-button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        <img src="assets/images/edit.png" alt="">
+                        <img src="{{ @asset('assets/images/edit.png')}}" alt="">
                     </button>
 
                 </div>
@@ -174,7 +176,7 @@
                     <div class="card mb-3 m-auto justify-content-" style="max-width: 540px;">
                         <div class="row g-0">
                           <div class="col-md-4 d-flex justify-content-center p-1">
-                            <img src="assets/images/svg/HTML5_logo_and_wordmark.svg"  style="max-height: 180px" class="img-fluid rounded-start" alt="...">
+                            <img src="{{ @asset('assets/images/svg/HTML5_logo_and_wordmark.svg')}}"  style="max-height: 180px" class="img-fluid rounded-start" alt="...">
                           </div>
                           <div class="col-md-8" style="min-width: fit-content;">
                             <div class="card-body position-relative">
@@ -194,7 +196,7 @@
                     <div class="card m-auto mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                           <div class="col-md-4 d-flex justify-content-center p-1">
-                            <img src="assets/images/svg/CSS3_logo_and_wordmark.svg" style="max-height: 180px" class="img-fluid rounded-start" alt="...">
+                            <img src="{{ @asset('assets/images/svg/CSS3_logo_and_wordmark.svg')}}" style="max-height: 180px" class="img-fluid rounded-start" alt="...">
                           </div>
                           <div class="col-md-8">
                             <div class="card-body">
@@ -214,7 +216,7 @@
                       <div class="card m-auto mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                           <div class="col-md-4 d-flex justify-content-center p-1">
-                            <img src="assets/images/svg/Unofficial_JavaScript_logo_2.svg" style="max-height: 180px" class="img-fluid rounded-start" alt="...">
+                            <img src="{{ @asset('assets/images/svg/Unofficial_JavaScript_logo_2.svg')}}" style="max-height: 180px" class="img-fluid rounded-start" alt="...">
                           </div>
                           <div class="col-md-8">
                             <div class="card-body">
@@ -234,7 +236,7 @@
                       <div class="card m-auto mb-3 " style="max-width: 540px;">
                         <div class="row g-0">
                           <div class="col-md-4 d-flex justify-content-center p-1">
-                            <img src="assets/images/svg/React-icon.svg" style="max-height: 180px" class="img-fluid rounded-start "  alt="...">
+                            <img src="{{ @asset('assets/images/svg/React-icon.svg')}}" style="max-height: 180px" class="img-fluid rounded-start "  alt="...">
                           </div>
                           <div class="col-md-8">
                             <div class="card-body">
@@ -258,7 +260,7 @@
                     <button class="btn edit-button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                         <i style="font-size: 35px"  class="far fa-plus-square text-primary"></i></button>
                     <div class="card bg-dark mb-3 text-white m-auto" style="max-width: 500px !important;">
-                        <img src="assets/images/experince1.jpg" width="400"class="card-img" alt="...">
+                        <img src="{{ @asset('assets/images/experince1.jpg')}}" width="400"class="card-img" alt="...">
                         <div class="card-img-overlay">
                             <h5 class="card-title">More Than 6 Years of Experience In The Tech Industry</h5>
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -269,7 +271,7 @@
                           </div>
                     </div>
                     <div class="card bg-dark mb-3 text-white m-auto" style="max-width: 500px !important;">
-                        <img src="assets/images/experince2.jpg" width="400"class="card-img" alt="...">
+                        <img src="{{ @asset('assets/images/experince2.jpg')}}" width="400"class="card-img" alt="...">
                         <div class="card-img-overlay">
                             <h5 class="card-title">More Than 6 Years of Experience In The Tech Industry</h5>
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -280,7 +282,7 @@
                           </div>
                     </div>
                     <div class="card bg-dark mb-3 text-dark m-auto" style="max-width: 500px !important;">
-                        <img src="assets/images/experince3.jpg" width="400"class="card-img" alt="...">
+                        <img src="{{ @asset('assets/images/experince3.jpg')}}" width="400"class="card-img" alt="...">
                         <div class="card-img-overlay position-absolute mt-3 bottom-0">
                             <h5 class="card-title">Worked With Many Teams</h5>
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -362,33 +364,11 @@
             </div>
         </div>
 
-        <script src="js/bootstrap.bundle.js"></script>
-
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-{{--    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>--}}
-{{--    <script src="../../assets/vendor/libs/popper/popper.js"></script>--}}
-{{--    <script src="../../assets/vendor/js/bootstrap.js"></script>--}}
-{{--    <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>--}}
-
-{{--    <script src="../../assets/vendor/libs/hammer/hammer.js"></script>--}}
-{{--    <script src="../../assets/vendor/libs/i18n/i18n.js"></script>--}}
-{{--    <script src="../../assets/vendor/libs/typeahead-js/typeahead.js"></script>--}}
-
-{{--    <script src="../../assets/vendor/js/menu.js"></script>--}}
-{{--    <!-- endbuild -->--}}
-
-{{--    <!-- Vendors JS -->--}}
-{{--    <script src="assets/vendor/libs/sweetalert2/sweetalert2.js"></script>--}}
-
-{{--    <!-- Main JS -->--}}
-{{--    <script src="assets/js/main.js"></script>--}}
-
-{{--    <!-- Page JS -->--}}
-{{--    <script src="assets/js/extended-ui-sweetalert2.js"></script>--}}
+        <script src="{{@asset('js/bootstrap.bundle.js')}}"></script>
 
 
-    <script src="js/jQuery.min.js"></script>
+
+    <script src="{{@asset('js/jQuery.min.js')}}"></script>
         <script >
             $('#personal').click(function(){
                 $('.personal-info').removeClass("d-none");

@@ -60,8 +60,7 @@ Route::get('/new_category',[CategoriesController::class,'create'])->name('new_ca
 
 Route::get('/login',[AuthController::class,'showLogin'])->name('login');
 
-
-Route::group(['middleware'=>'auth'],function(){
+Route::group(['prefix'=> 'admin','middleware'=>'auth'],function(){
     Route::group(['middleware'=>'role:admin|super_admin'],function(){
 
         Route::get('/dashboard',[DashboardController::class,'adminDash'])->name('dashboard');
@@ -69,10 +68,11 @@ Route::group(['middleware'=>'auth'],function(){
     });
 
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+
 });
 
 
-Route::post('/do_login',[AuthController::class,'login'])->name('do_login');
+Route::post('/login',[AuthController::class,'login'])->name('do_login');
 
 Route::get('/generate_roles',[SettingsController::class,'generateRoles'])->name('generate_roles');
 
@@ -84,5 +84,14 @@ Route::post('addCompany',[CompaniesController::class,'addCompany']);
 Route::get('/profile', function () {
     return view('profile.profileSettings');
 });
-Route::get('show',[Website_usersController::class,'show'])->name('showProfile');
+
+Route::group(['prefix' => 'user', 'middleware' => ['role:client']], function() {
+    Route::get('show',[Website_usersController::class,'show'])->name('showProfile');
+    Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+//    Route::post('/login',[AuthController::class,'login'])->name('do_login');
+
+//    Route::get('/manage', ['middleware' => ['permission:manage-admins'], 'uses' => 'AdminController@manageAdmins']);
+});
+
+//Route::get('show',[Website_usersController::class,'show'])->name('showProfile');
 Route::post('editProfile',[Website_usersController::class,'editProfile']);

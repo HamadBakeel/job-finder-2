@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Website_user;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use function public_path;
 use function redirect;
 use function view;
@@ -12,8 +13,10 @@ class Website_usersController extends Controller
 {
     public function show()
     {
-        $users = Website_user::all();
-        $user = $users->find('1');
+//        $users = Website_user::all();
+//        $user = $users->find('1');
+        $user = Auth::user();
+//        return response($user);
         return view('profile/profileSettings',['user'=>$user]);
     }
 
